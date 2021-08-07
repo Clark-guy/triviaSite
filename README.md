@@ -3,7 +3,11 @@
  This is a website I made just for fun to learn some javascript. I found some
  scraped jeopardy data from the internet as a csv and decided to make a game of
  it. In this repo there's several files that I've used to make this cool thingy
- happen. I'll list em below as well as their uses.
+ happen. I'll list em below as well as their uses. At the time of writing this,
+ I'm hosting this site on an apache server run on a raspberry pi 4b+. website
+ is hosted at http://www.yikes.pizza/. I may not have completed the ssl cert
+ yet so if it says the site is dangerous and will kill you don't worry that
+ probably won't happen
 
 
  ## Files
