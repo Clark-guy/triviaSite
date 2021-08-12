@@ -1,2 +1,9 @@
 *.min
 *.min.js
+*.swp
+*.jpeg
+*.jpg
+*.JPG
+*.png
+*.wav
+*.gif
