@@ -8,11 +8,11 @@
 	<script src="jeopardy.js"></script>
 </head>
 
-<body>
+<body id=bg>
 	<h1>My Website</h1>
 	<nav>
-		<a href="index.html">Index</a>
-		<a href="jeopardy.html">Trivia</a>
+		<a href="index.php">Index</a>
+		<a href="jeopardy.php">Trivia</a>
 		<a href="style.css">Stylesheet</a>
 	</nav>
 	<article>
