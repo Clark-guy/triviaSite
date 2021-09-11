@@ -9,7 +9,7 @@
 		<header>
 			<table style="width:100%">
 			<tr>
-        		<th style="width:5%"> <img class="icon" src="guy.png" alt="guy" width="60" height="100"></th>
+        		<th style="width:5%"> <img class="icon" src="images/guy.png" alt="guy" width="60" height="100"></th>
 			<th style="width:95%">
 			<h1> Yikes! </h1></th><tr>
 			</table>

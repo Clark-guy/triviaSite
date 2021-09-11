@@ -127,30 +127,30 @@ p {
 
 @font-face {
     font-family: 'Blocks-N-Bolts-Regular';
-    src:url('Blocks-N-Bolts-Regular.ttf.woff') format('woff'),
-        url('Blocks-N-Bolts-Regular.ttf.svg#Blocks-N-Bolts-Regular') format('svg'),
-        url('Blocks-N-Bolts-Regular.ttf.eot'),
-        url('Blocks-N-Bolts-Regular.ttf.eot?#iefix') format('embedded-opentype'); 
+    src:url('fonts/Blocks-N-Bolts-Regular.ttf.woff') format('woff'),
+        url('fonts/Blocks-N-Bolts-Regular.ttf.svg#Blocks-N-Bolts-Regular') format('svg'),
+        url('fonts/Blocks-N-Bolts-Regular.ttf.eot'),
+        url('fonts/Blocks-N-Bolts-Regular.ttf.eot?#iefix') format('embedded-opentype'); 
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Sketchy-Times';
-    src:url('Sketchy-Times.ttf.woff') format('woff'),
-        url('Sketchy-Times.ttf.svg#Sketchy-Times') format('svg'),
-        url('Sketchy-Times.ttf.eot'),
-        url('Sketchy-Times.ttf.eot?#iefix') format('embedded-opentype'); 
+    src:url('fonts/Sketchy-Times.ttf.woff') format('woff'),
+        url('fonts/Sketchy-Times.ttf.svg#Sketchy-Times') format('svg'),
+        url('fonts/Sketchy-Times.ttf.eot'),
+        url('fonts/Sketchy-Times.ttf.eot?#iefix') format('embedded-opentype'); 
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Antibiotech';
-    src:url('Antibiotech.ttf.woff') format('woff'),
-        url('Antibiotech.ttf.svg#Antibiotech') format('svg'),
-        url('Antibiotech.ttf.eot'),
-        url('Antibiotech.ttf.eot?#iefix') format('embedded-opentype'); 
+    src:url('fonts/Antibiotech.ttf.woff') format('woff'),
+        url('fonts/Antibiotech.ttf.svg#Antibiotech') format('svg'),
+        url('fonts/Antibiotech.ttf.eot'),
+        url('fonts/Antibiotech.ttf.eot?#iefix') format('embedded-opentype'); 
     font-weight: normal;
     font-style: normal;
 }

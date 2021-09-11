@@ -6,8 +6,8 @@
 	<h2 id="anim">Hey we are yikes! the band welcome to our website! haha yeah!</h2>
 	<table>
   <tr style=>
-    <th style="width:50%"><img class="ass" src="blur.JPG" width=90% height=auto></img></th>
-    <th style="width:50%"><img class="ass" src="j.JPG" width=90% height=auto></img></th>
+    <th style="width:50%"><img class="ass" src="images/blur.JPG" width=90% height=auto></img></th>
+    <th style="width:50%"><img class="ass" src="images/j.JPG" width=90% height=auto></img></th>
   </tr>
 	</table>
 

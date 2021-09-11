@@ -17,11 +17,17 @@
 		<a href="style.css">Stylesheet</a>
 	</nav>
 	<article>
-		<h2>This website will make coreys playstation update faster.</h2>
-		<p>IF YOU CLICK THE BUTTON BELOW YOUR PLAYSTATION WILL UPDATE FASTER</p>
+		<h2>Welcome</h2>
+		<p>Hi! I'm James Putnam and this is my cool website which will host a lot of things from a resume and portfolio of my work to some goofy projects that I do for fun. I also plan to include a blog somewhere (or maybe a web comic, if I'm feeling artistic) so stay tuned for that. Feel free to poke around and see my work, and thanks for stopping by!</p>
 		<button onclick="clicky()">CLICK ME</button>
-		<p> This is my website. thanks for coming by, i plan to put some javascript or something here. I'm not quite sure yet what that will look like, but only time will tell. I was thinking of starting with something simple, maybe a clock, some basic buttons that changed a variable, things like that. After that, I want to develop a small game </p>
-		<p> This is just a second paragraph element for funsies. I hope you're having a good day! </p>
+		<p>Todo: </p>
+		<ul>
+			<li>make a javascript clock</li>
+			<li>make a javascript game</li>
+			<li>embed lexical analyzer</li>
+			<li>add picture of me to website</li>
+			<li>add blog area or webcomic area</li>
+		</ul>
 	<canvas id=mainCanvas></canvas>
 	</article>
 
