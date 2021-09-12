@@ -1,6 +1,8 @@
 <?php
 include "header.php";
 ?>
+
+<script src = "jeopardy.js"></script>
 	<article>
 		<h2>trivia</h2>
 		<p id="subjText"></p>
