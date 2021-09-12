@@ -26,6 +26,13 @@ body {
 	margin-right: 20%;
 }
 
+#comicImg{
+	max-width: 100%;
+}
+
+#mainCanvas{
+	display: none;
+}
 
 h1 {
 	background-color: saddlebrown;
@@ -77,6 +84,20 @@ nav a:hover{
 	padding-right: 1em;
 	margin:.5em;
 	background-color: grey;
+}
+
+nav a:active{
+	border-width: .2em 0px;
+	border-style: groove;
+}
+
+.blogNav{
+	padding: 0em;
+	text-align:center;
+}
+
+.blogNav li{
+	display:inline;
 }
 
 #subjText {

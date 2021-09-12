@@ -92,6 +92,11 @@ p {
 	font-family: "Lucida Console", "Courier New", monospace;
 }
 
+#triviaLink{
+	font-size: 1em;
+	font-family: "Lucida Console", "Courier New", monospace;
+}
+
 .ascii {
     font-family: monospace;
     white-space: pre;

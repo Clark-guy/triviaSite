@@ -1,20 +1,6 @@
-
-<!doctype html>
-
-<html lang="en">
-<head>
-	<link rel="stylesheet" href="style.css">
-	<script src="jquery-3.6.0.min.js"></script>
-	<script src="jeopardy.js"></script>
-</head>
-
-<body id=bg>
-	<h1>My Website</h1>
-	<nav>
-		<a href="index.php">Index</a>
-		<a href="jeopardy.php">Trivia</a>
-		<a href="style.css">Stylesheet</a>
-	</nav>
+<?php
+include "header.php";
+?>
 	<article>
 		<h2>trivia</h2>
 		<p id="subjText"></p>
