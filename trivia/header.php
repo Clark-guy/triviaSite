@@ -15,6 +15,6 @@
 	<nav>
 		<a href="index.php">Index</a>
 		<a href="jeopardy.php">Trivia</a>
-		<a href="blog.php">Weblog</a>
+		<a href="comic.php">Web Comic</a>
 		<a href="style.css">Stylesheet</a>
 	</nav>

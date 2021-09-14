@@ -1,5 +1,5 @@
 body {
-	background-image: url("back.gif");
+	background-image: url(/images/back.gif);
 	margin-top: 0px;
 	margin-bottom: 0px;
 	margin-left: auto;
@@ -31,10 +31,10 @@ a{
 	/*font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;*/
 	font-family: 'Antibiotech';
 	border-style: outset;
-	padding: 10px;
+	padding: 1%;
 	text-transform: uppercase;
 	font-weight: 700;
-	font-size: 3rem;
+	font-size: 2rem;
 	color: white;
 	text-decoration: none;
 }
@@ -92,6 +92,10 @@ p {
 	font-family: "Lucida Console", "Courier New", monospace;
 }
 
+th img{
+	max-width:100%;	
+}
+
 #triviaLink{
 	font-size: 1em;
 	font-family: "Lucida Console", "Courier New", monospace;
@@ -100,7 +104,7 @@ p {
 .ascii {
     font-family: monospace;
     white-space: pre;
-	text-align: center;
+	text-align: left;
 }
 
 .ass{
@@ -110,6 +114,10 @@ p {
 }
 .guy{
 	animation: 3s animate;
+}
+
+.logo{
+	float:right;
 }
 
 .icon{

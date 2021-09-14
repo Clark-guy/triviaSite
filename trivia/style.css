@@ -69,6 +69,7 @@ p {
 }
 
 nav a {
+	text-transform: lowercase;
 	margin-left: 1em;
 	margin-right: 1em;
 	padding: .5em;
@@ -76,8 +77,10 @@ nav a {
 	color: white;
 	border-radius: 1em;
 	text-decoration: none;
-	
+	font-family: 'Brush Script MT', cursive;
 }
+
+
 
 nav a:hover{
 	padding-left: 1em;
@@ -98,6 +101,25 @@ nav a:active{
 
 .blogNav li{
 	display:inline;
+}
+
+
+.blogNav a:hover{
+	background-color: white;
+}
+
+.blogNav a:active{
+	font-size: 2em;
+	background-color: blue;
+}
+
+.blogNav a{
+	background-color: burlywood;
+	font-weight: bold;
+	font-family: Courier New;
+	font-size: 1.5em;
+	padding: .5em;
+	transition: font-size .1s, background-color .2s;
 }
 
 #subjText {
