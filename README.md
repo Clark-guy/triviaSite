@@ -14,7 +14,7 @@ Hosts site for professional band YIKEs!. We have cool pics of us and stuff, plan
 
 ##James' portion
 
-Has a few thingys. little web comic, and some trivia. trivia uses data set found at <a href= "www.kaggle.com/tunguz/200000-jeopardy-questions">www.kaggle.com/tunguz/200000-jeopardy-questions</a>
+Has a few thingys. little web comic, and some trivia. trivia uses data set found at <a href= "https://www.kaggle.com/tunguz/200000-jeopardy-questions">www.kaggle.com/tunguz/200000-jeopardy-questions</a>
 
 ## hosting
 
