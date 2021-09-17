@@ -16,6 +16,7 @@ include "header.php";
 			<li>add picture of me to website</li>
 			<li>add blog area or webcomic area</li>
 			<li>learn to use html canvas</li>
+			<li>speech synthesis, encoding(morse code or caesar shift followed by A1Z26), at 8:05 on music portion of site</li>
 		</ul>
 	<canvas id=mainCanvas></canvas>
 	</article>
