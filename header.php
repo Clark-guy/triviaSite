@@ -4,7 +4,7 @@
 		<title><?php echo $title;?></title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="stylesheet.css" type="text/css" media="screen">
-		<link rel="stylesheet" href="mobile_stylesheet.css" type="text/css" media="screen and (max-device-width:320px)">
+		<link rel="stylesheet" href="mobile_stylesheet.css" type="text/css" media="screen and (max-device-width:1020px)">
 	</head>
 	<body>
 		<header>
