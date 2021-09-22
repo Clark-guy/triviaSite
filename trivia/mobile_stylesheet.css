@@ -30,6 +30,25 @@ p {
 
 body{ 
 	font-size: 4rem;
+	margin:1em;
+}
+
+article{
+	padding:.5em;
+}	
+
+button{
+	/*display:block;*/
+	padding:1em;
+	font-size: 1em;
+}
+
+.blogNav a:active{
+	font-size: 1.2em;
+}
+.blogNav a{
+	padding: 0.2em;
+	font-size: 1em;
 }
 
 pre {

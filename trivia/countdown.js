@@ -1,5 +1,5 @@
 
-var time = document.getElementById("timer");
+var timer = document.getElementById("timer");
 var val = 100;
 
 $(document).ready(function() {
@@ -18,14 +18,15 @@ $(document).ready(function() {
 
 
 
-function enter(){
+function enter(time){
 	box = document.getElementById("user_input");
 	if(box.value == "4 8 15 16 23 42"){
 		val = 100;
-		time.innerHTML = val;
+		//time.innerHTML = val;
+		box.value = "";
 	}
 	else{
 		val = val - 10;
-		time.innerHTML = val;
+		timer.innerHTML = val;
 	}
 }

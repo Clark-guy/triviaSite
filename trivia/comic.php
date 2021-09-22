@@ -3,7 +3,16 @@ include "header.php"
 ?>
 
 <?php
-$most_recent_comic = 3;
+
+$comicDir = getcwd()."/comics/";
+$filecount = 0;
+$files2 = glob($comicDir . "*");
+
+if($files2){
+	$filecount = count($files2);
+}
+
+$most_recent_comic = $filecount;
 
 if (!isset ($_GET['page']) ) {
 	$page = 1;
