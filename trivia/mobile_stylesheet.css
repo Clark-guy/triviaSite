@@ -43,6 +43,19 @@ button{
 	font-size: 1em;
 }
 
+input{
+	max-width: 80%;
+	font-size: 2em;
+}
+
+label{
+	font-size: 2em;
+}
+
+#bigButt {
+	display: none;
+}
+
 .blogNav a:active{
 	font-size: 1.2em;
 }

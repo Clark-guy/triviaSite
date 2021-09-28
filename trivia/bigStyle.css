@@ -22,8 +22,8 @@ canvas{
 
 body {
 	background-color: beige;
-	margin-left: 20%;
-	margin-right: 20%;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 #comicImg{
@@ -65,11 +65,11 @@ p {
 	text-indent: 1em;
 	padding-left: 1em;
 	font-family: Courier;
-	/*font-size: 1.4em;*/
+	font-size: 3em;
 }
 
 nav {
-	padding-bottom: 1em;
+	margin-bottom: 1em;
 }
 
 nav a {
@@ -127,7 +127,7 @@ nav a:active{
 }
 
 #subjText {
-	min-height: 2em;
+	margin: 0em;
 }
 
 
@@ -135,46 +135,17 @@ nav a:active{
 	box-shadow: 0 0 2px 1px grey;
 	border-radius: .5em;
 	background-color: beige;
-	padding: 1em;
+	padding: .3em;
 	min-height: 5em;
+	margin-top: 0em;
 }
 
 #bigButt {
 	float: right;
-	font-size: 1.3em;
+	font-size: 1.5em;
+
 }
 
-/* rules for countdown section*/
-
-#countBody{
-	background-color: black;
-	/*color: green;*/
-}
-
-#countBody article{
-	background-color: black;
-	box-shadow: none;
-}
-
-#countBody p, #countBody h2, #countBody label{
-	color: green;
-}
-
-#countBody input{
-	background-color: black;
-	color: green;
-	border: none;
-}
-
-#countBody input:focus {
-	outline: none;
-	outline-width: 0;
-}
-
-#countBody #bigButt {
-	display:none;
-}
-
-#countBody h1{
-	visibility:hidden;
+button{
+	font-size: 3em;
 }
