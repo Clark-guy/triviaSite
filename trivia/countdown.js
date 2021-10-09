@@ -5,7 +5,7 @@ var underworld = 0;
 var beep = new Audio('sounds/beep.wav');
 var alarm = new Audio('sounds/alarm.wav');
 var alarm1 = new Audio('sounds/alarmFast.wav');
-
+var tick = new Audio('sounds/tick.wav');
 
 document.getElementById("user_input").addEventListener("keyup", function(event){
 	var code = event.keyCode || event.which;
@@ -14,9 +14,9 @@ document.getElementById("user_input").addEventListener("keyup", function(event){
 		beep1.play();
 		enter(timer);
 	}
-	/*else if(code == '37'){	//for debugging
+	else if(code == '37'){	//for debugging, makes left arrow increment by 20
 		val = val-20;
-	}*/
+	}
 });
 
 function formatTime(time){
@@ -31,7 +31,7 @@ function formatTime(time){
 
 function alarmFast(id){
 	alarm1.play();
-	if(val<=0){
+	if(val<=0 || val >=22){
 		clearInterval(id);
 	}
 }
@@ -56,9 +56,10 @@ $(document).ready(function() {
 				alarm.play();
 			}
 			if(val<=21 && fastFlag == 0){
-				fastId = setInterval(function(){alarmFast()}, 1450);
+				fastId = setInterval(function(){alarmFast(fastId)}, 1450);
 				fastFlag = 1;
 			}
+			//tick.play();
 			val = val-1;
 			localStorage.setItem("storedVal", val);
 		}

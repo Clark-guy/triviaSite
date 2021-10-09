@@ -26,10 +26,9 @@ $path_parts = pathinfo($phpSelf);
 		}?>>
 	<h1>My Website</h1>
 	<nav>
-		<a href="index.php">Index</a>
+		<a href="index.php">Home</a>
 		<a href="jeopardy.php">Trivia</a>
 		<a href="comic.php">Web Comic</a>
-		<a href="style.css">Stylesheet</a>
 		<a href="../index.php">Back to Yikes!</a>
 	</nav>
 	<button id="bigButt" onclick="goBigOrGoHomeIMeanSmall()">toggle TV/Desktop view</button>

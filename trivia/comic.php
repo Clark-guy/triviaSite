@@ -12,17 +12,17 @@ if($files2){
 	$filecount = count($files2);
 }
 
+//this variable is just so i dont have to think as hard
 $most_recent_comic = $filecount;
 
-if (!isset ($_GET['page']) ) {
-	$page = 1;
-}
-else {
-	$page = $_GET['page'];
-}
-$comic = $page . ".png";
+// sets default page, otherwise go to current page
+$page = (!isset ($_GET['page']) ) ? $most_recent_comic : $_GET['page'];
+
+// fixes certain pages to allow gifs
+$comic = ($page == 9) ? $page . '.gif' : $page . '.png';
 
 // ugly code that just says u can or cant keep going depending on what page ur on
+// fix with ternary operators like above so i dont go crazy later ToDo
 if ($page > 1){
 	$linkNext = "./comic.php?page=" . ($page-1);
 }
