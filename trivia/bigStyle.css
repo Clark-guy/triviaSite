@@ -149,3 +149,7 @@ nav a:active{
 button{
 	font-size: 3em;
 }
+
+img{
+	max-width:100%;
+}

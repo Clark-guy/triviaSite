@@ -24,11 +24,12 @@ $path_parts = pathinfo($phpSelf);
 		else{
 			print "bg";
 		}?>>
-	<h1>My Website</h1>
+	<h1>Yikes.pizza trivia</h1>
 	<nav>
 		<a href="index.php">Home</a>
 		<a href="jeopardy.php">Trivia</a>
 		<a href="comic.php">Web Comic</a>
+		<a href="countdown.php">Don't click this</a>
 		<a href="../index.php">Back to Yikes!</a>
 	</nav>
 	<button id="bigButt" onclick="goBigOrGoHomeIMeanSmall()">toggle TV/Desktop view</button>
