@@ -12,13 +12,13 @@ function clicky(){
 	x+=1;
 	y+=1;
 	if(x>5){
-		alert("hello");
-		alert("that's enough, thank you.");
+		alert("hello, you've found the secret message");
+		alert("The secret message is: have a good day!");
 		x = 0;
 	}
 	if(y>20) {
-		for(let i=0;i<10;i++){
-			alert("no more");
-		}
+		alert("no more secret messages today");
+		y = 0;
+		x = -100;
 	}
 }
