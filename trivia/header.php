@@ -10,6 +10,7 @@
 	<script src="jquery-3.6.0.min.js"></script>
 	<script src="canvas.js"></script>
 	<script src="bigMode.js"></script>
+	<script src="menuScroll.js"></script>
 </head>
 
 <?php
@@ -24,6 +25,15 @@ $path_parts = pathinfo($phpSelf);
 		else{
 			print "bg";
 		}?>>
+	<span id="mobileNav" onclick="document.getElementById('mobileNavMenu').style.display='block'">menu</span>
+	<nav id=mobileNavMenu>
+		<span id="mobileNavX"  onclick="document.getElementById('mobileNavMenu').style.display='none'">menu</a>
+		<a href="index.php">Home</a>
+		<a href="jeopardy.php">Trivia</a>
+		<a href="comic.php">Web Comic</a>
+		<a href="countdown.php">Don't click this</a>
+		<a href="../index.php">Back to Yikes!</a>
+	</nav>
 	<h1>Yikes.pizza trivia</h1>
 	<nav>
 		<a href="index.php">Home</a>
@@ -32,4 +42,5 @@ $path_parts = pathinfo($phpSelf);
 		<a href="countdown.php">Don't click this</a>
 		<a href="../index.php">Back to Yikes!</a>
 	</nav>
+	
 	<button id="bigButt" onclick="goBigOrGoHomeIMeanSmall()">toggle TV/Desktop view</button>

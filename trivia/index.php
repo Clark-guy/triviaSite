@@ -8,7 +8,7 @@ include "header.php";
 		</figure>
 		<p id="welcomeHello">Hello, and welcome!</p>
 		<p>My name is James Putnam and this is my cool website. I mostly use this to work on goofy projects that I do in my free time, but I'm happy to share my nonsense with whoever would like to see it so feel free to poke around. The rest of this splash page defines what each of the tabs on the navigation menu will lead you to so read on if you're interested. You can also find out what happens if you click this button but I promise it's not very interesting</p>
-		<button onclick="clicky()" class="centerItem" style="font-size:1.3em">CLICK ME</button>
+		<button onclick="clicky()" class="centerItem">CLICK ME</button>
 		<h2>Site things</h2>
 		<h3>Trivia</h3>
 		<p>This is a little trivia game I made for fun. Built on a CSV of jeopardy questions that I sourced online, you can find info on the dataset in the README on <a href="http://www.github.com/Clark-guy/triviaSite-bandSite">my github</a>
