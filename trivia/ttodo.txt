@@ -1,0 +1,24 @@
+pull it down, spin it up, test cases
+microsoft
+basic sql
+learn C#
+
+selenium
+atiba -> snapworx
+singleton
+factopry pattern
+interface v  class
+regression testing
+automation test
+visual studio community edition 2019
+
+
+OBJECT ORIENTED PRINCIPLES (JAVA)
+MODEL VIEW CONTROLLER
+DJANGO
+
+
+TODO for the server
+implement SQL to server
+implement "create account" section to work with "login" section
+implement hashing function to check PW against hashed version 

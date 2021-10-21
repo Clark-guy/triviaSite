@@ -6,22 +6,30 @@ include "header.php";
 
 
 <div id="modalPop" class="modal">
-	<form class="modal-content" action="store.php" method="POST">
+	<form class="modal-content" action="welcome.php" method="POST">
 		<span onclick="document.getElementById('modalPop').style.display='none'" class="close" title="close Modal">&times;</span>
-		<label for="uname">Username</label>
+		<h2 class="centerBlock">Sign in</h2>
+		<p>At the time of writing this, there is little to no security on this website. Do NOT enter any sensitive information here. Actually, if you did, it doesn't send the information anywhere, so you'd probably be fine, but just for the sake of safety let's not anyway.</p>
+		<br>
+		<label for="uname"><b>Username</b></label>
 		<input type="text" name="uname" required>
+		<label for="pword"><b>Password</b></label>
+		<input type="password" name="pword" required>
 
 		<button type="submit">Login</button>
 		<label>
 			<input type="checkbox" checked="checked" name="remember"> Remember me
 		</label>
 		
-		<div class="container" style="background-color:#f1f1f1">
+		<div class="container" style="background-color:#FFFFFF">
 			<button type="button" class="cancelbtn" onclick="document.getElementById('modalPop').style.display = 'none'">Cancel</button>
 		</div>
 
 	</form>
 </div>
+<article>
+<canvas id=canvasGame>This should be a good game</canvas>
+</article>
+<script src=canvas.js></script>
 </body>
-
 </html>

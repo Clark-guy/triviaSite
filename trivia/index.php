@@ -14,7 +14,7 @@ include "header.php";
 		<p>This is a little trivia game I made for fun. Built on a CSV of jeopardy questions that I sourced online, you can find info on the dataset in the README on <a href="http://www.github.com/Clark-guy/triviaSite-bandSite">my github</a>
 		<p>Fun fact: the trivia page is why this section of the site is at /trivia. originally that was all that I intended to put here, but then I just started adding more things. I could just change the name of the folder, but by now I've called it the trivia section enough times that it's just easier to leave as is.</p>
 		<h3>Web Comic</h3>
-		<p>I started making a web comic because I wanted to figure out how I would code it, using pagination and automatic image loading with php. It wasn't particularly difficult, but it was an interesting thing to try and since then I've been making more of these nonsense panelse that involve a duck and an ant-like creature for fun. I've been following along with inktober, which is an event every year during the month of october where artists draw something new for each day of the month, following a prompt either given by whoever does inktober officially, or self imposed. I haven't done a comic for every day of the month so far, (it is the 9th at the time of writing this) but I've done several and I think it's pretty fun so I'll likely continue.</p>
+		<p>I started making a web comic because I wanted to figure out how I would code it, using pagination and automatic image loading with php. It wasn't particularly difficult, but it was an interesting thing to try and since then I've been making more of these nonsense panels that involve a duck and an ant-like creature for fun. I've been following along with inktober, which is an event every year during the month of october where artists draw something new for each day of the month, following a prompt either given by whoever does inktober officially, or self imposed. I haven't done a comic for every day of the month so far, (it is the 9th at the time of writing this) but I've done several and I think it's pretty fun so I'll likely continue.</p>
 		<h3>Don't click this</h3>
 		<p>Don't click that link</p>
 		<h3>Back to Yikes!</h3>
@@ -35,6 +35,7 @@ include "header.php";
 	<canvas id=mainCanvas></canvas>
 	</article>
 
+<script src=clicky.js></script>
 </body>
 
 </html>

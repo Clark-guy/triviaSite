@@ -83,12 +83,13 @@ h3{
 
 
 p {
+	line-height: 1.5;
 	text-indent: 0em;
 	padding-bottom:1em;
-	padding-left: 2em;
-	padding-right: 2em;
+	padding-left: 1em;
+	padding-right: .5em;
 	font-family: Courier;
-	font-size: 4em;
+	font-size: 3em;
 }
 
 nav {
@@ -295,5 +296,8 @@ button{
 
 
 #mobileNavX{
-	font-size: 2em;
+	display: block;
+	text-align: center;
+	font-size: 5em;
 }
+
