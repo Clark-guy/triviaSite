@@ -8,7 +8,7 @@ var ctx = gameWindow.getContext("2d");
 
 var playerPos = [0,0];
 var size = 10;
-var speed = 1;
+var speed = .25;
 var bg = new Image();
 var yVel = 0;
 var xVel = 0;
@@ -76,10 +76,10 @@ function isOnFloor(playerPos, platforms){
 
 function move(){
 	if(left==1){
-		playerPos[0]-=6;
+		playerPos[0]-=3;
 	}
 	else if(right==1){
-		playerPos[0]+=6;
+		playerPos[0]+=3;
 	}
 	if(up==1 && isOnFloor(playerPos, 1)){
 		yVel = -10;
@@ -108,6 +108,7 @@ function spawnEnemy(){
 
 var lastLongTick = 0;
 var enemies = []
+var gameOver =0;
 function update(pattern){
 	move();
 	ctx.fillStyle = pattern;
@@ -115,10 +116,19 @@ function update(pattern){
 	ctx.beginPath();
 	ctx.rect(playerPos[0],playerPos[1], size, size);
 	ctx.fillStyle="black";
-	ctx.fill();
+	if (gameOver == 0)
+		ctx.fill();
 	ctx.font = "30px Arial";
+	if (gameOver == 1){
+		ctx.strokeText("game over", playerPos[1], playerPos[0]+150);
+		ctx.strokeText("game over", playerPos[1]/5, playerPos[0]+75);
+		ctx.strokeText("game over", playerPos[1], playerPos[0]);
+		ctx.strokeText("game over", playerPos[1]/5, playerPos[0]-75);
+		ctx.strokeText("game over", playerPos[1], playerPos[0]-150);
+		ctx.strokeText("game over", playerPos[1]/5, playerPos[0]-225);
+	}
 	var ticks= new Date();
-	if(ticks-lastLongTick>3000){
+	if(gameOver==0 && ticks-lastLongTick>3000){
 		enemies.push(spawnEnemy());
 		lastLongTick = ticks;
 	}
@@ -129,9 +139,12 @@ function update(pattern){
 	}
 	//make enemies walk towards me
 	for(let i=0; i<enemies.length; i++){
+		if ((enemies[i].pos[0]<=playerPos[0]+10 && enemies[i].pos[0] >=playerPos[0]-10 ) && enemies[i].pos[1]==playerPos[1])
+			gameOver=1;
 		ctx.rect(enemies[i].pos[0],enemies[i].pos[1], size, size);
 		ctx.fillStyle="white";
-		ctx.fill();
+		if (gameOver == 0)
+			ctx.fill();
 		if (enemies[i].pos[0] <=0)
 			enemies.pop();
 	}
