@@ -22,3 +22,6 @@ TODO for the server
 implement SQL to server
 implement "create account" section to work with "login" section
 implement hashing function to check PW against hashed version 
+
+
+

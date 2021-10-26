@@ -1,6 +1,7 @@
 
 var gameWindow = document.getElementById("canvasGame");
 var ctx = gameWindow.getContext("2d");
+
 //ctx.moveTo(0, 0);
 //ctx.lineTo(200, 100);
 //ctx.stroke();
@@ -68,95 +69,138 @@ window.addEventListener("keyup", function(event){
 
 
 function isOnFloor(playerPos, platforms){
-	if(playerPos[1] >= 150-size)
+	if(playerPos[1] >= 150-size)	//tells if player is on bottom floor
 		return true;
-	else
-		return false;
+	else{
+		//logic to test if standing on floating platform
+		for(let i=0; i<platforms.length; ++i){
+			if(playerPos[0] > platforms[i].pos[0]-size && playerPos[0] < platforms[i].pos[0]+platforms[i].width)
+				if(playerPos[1] < platforms[i].pos[1] && playerPos[1] > platforms[i].pos[1]-size){
+					if(up!=1)
+						playerPos[1] = platforms[i].pos[1]-size;
+					playerPos[0]+=2;
+					return true;
+				}
+		}
+	}
+	return false;
 }
 
-function move(){
+function move(platforms){
 	if(left==1){
 		playerPos[0]-=3;
 	}
 	else if(right==1){
 		playerPos[0]+=3;
 	}
-	if(up==1 && isOnFloor(playerPos, 1)){
+	if(up==1 && isOnFloor(playerPos, platforms)){
 		yVel = -10;
 	}
 	else if(down==1){
 		playerPos[1]+=speed;
 	}
 	playerPos[1]+=yVel;
-	if (isOnFloor(playerPos, 1)){
+	if (isOnFloor(playerPos, platforms)){
 		yVel = 0;
-		playerPos[1] = 150-size;
+		//snap player to base floor 
+		if(playerPos[1] > 150-size)
+			playerPos[1] = 150-size;
+		
 	}
 	else {
-		yVel+=1;
+		if (yVel < 8)
+			yVel+=1;
 	}
 	
+}
+
+
+function spawnPlatform(){
+	var newPlatform = {
+		//pos: [gameWindow.width, randInt(100)+40],
+		pos: [-100, randInt(100)+40],
+		width: randInt(40)+40
+	}
+	return newPlatform;
 }
 
 function spawnEnemy(){
 	var newEnemy = {
 		pos: [gameWindow.width, 140],
-		speed: 1
+		speed: randInt(3)+1
 	}
 	return newEnemy;
 }
 
 var lastLongTick = 0;
 var enemies = []
+var platforms = []
 var gameOver =0;
 function update(pattern){
-	move();
+	move(platforms);
 	ctx.fillStyle = pattern;
 	ctx.fillRect(0, 0, gameWindow.width, gameWindow.height);
 	ctx.beginPath();
 	ctx.rect(playerPos[0],playerPos[1], size, size);
 	ctx.fillStyle="black";
-	if (gameOver == 0)
+	if (gameOver == 0){
 		ctx.fill();
-	ctx.font = "30px Arial";
-	if (gameOver == 1){
-		ctx.strokeText("game over", playerPos[1], playerPos[0]+150);
-		ctx.strokeText("game over", playerPos[1]/5, playerPos[0]+75);
-		ctx.strokeText("game over", playerPos[1], playerPos[0]);
-		ctx.strokeText("game over", playerPos[1]/5, playerPos[0]-75);
-		ctx.strokeText("game over", playerPos[1], playerPos[0]-150);
-		ctx.strokeText("game over", playerPos[1]/5, playerPos[0]-225);
+		ctx.closePath();
 	}
-	var ticks= new Date();
-	if(gameOver==0 && ticks-lastLongTick>3000){
+	else{
+		ctx.font = "30px Arial";
+		for(let i=150;i>=-225;i-=75){
+			ctx.strokeText("game over", playerPos[1], playerPos[0]+i);
+		}
+	}
+	var ticks= Date.now();
+	if(gameOver==0 && ticks-lastLongTick>2500 && enemies.length < 5){	//spawn enemies/platforms
 		enemies.push(spawnEnemy());
+		platforms.push(spawnPlatform());
 		lastLongTick = ticks;
 	}
 	if(ticks-lastLongTick>1000){
 		for(let i=0; i<enemies.length; i++){
-			enemies[i].pos[0]-=enemies[i].speed;
 		}
 	}
 	//make enemies walk towards me
 	for(let i=0; i<enemies.length; i++){
+		enemies[i].pos[0]-=enemies[i].speed;
 		if ((enemies[i].pos[0]<=playerPos[0]+10 && enemies[i].pos[0] >=playerPos[0]-10 ) && enemies[i].pos[1]==playerPos[1])
 			gameOver=1;
 		ctx.rect(enemies[i].pos[0],enemies[i].pos[1], size, size);
 		ctx.fillStyle="white";
-		if (gameOver == 0)
+		if (gameOver == 0){
 			ctx.fill();
+			ctx.closePath();
+		}
 		if (enemies[i].pos[0] <=0)
-			enemies.pop();
+			enemies[i].pos = [300, enemies[i].pos[1]];
+	}
+
+	//make platforms move across screen
+	for(let i=0; i<platforms.length; i++){
+		platforms[i].pos[0]+=1;
+		ctx.rect(platforms[i].pos[0],platforms[i].pos[1], platforms[i].width, size/1.5);
+		ctx.fillStyle="white";
+		if (gameOver == 0){
+			ctx.fill();
+			ctx.closePath();
+		}
+		if (platforms[i].pos[0] >=gameWindow.width)
+			platforms[i].pos = [-100, platforms[i].pos[1]];
 	}
 }
 
 
 $(document).ready(function() {
 
-	//
 	//TODO: change parameter of update to list of sprites when i have more sprites
-	var pattern = ctx.createPattern(bg, 'repeat');
-	const interval = setInterval(function() {update(pattern);}, 20);	
+	//TODO: make sure setInterval is closing upon reload
+	window.onload = function(){
+		var pattern = ctx.createPattern(bg, 'repeat');
+		const interval = setInterval(function() {update(pattern);}, 20);	//for debug, change 20 to 200	
+	}
 });
 
 

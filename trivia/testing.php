@@ -29,6 +29,7 @@ include "header.php";
 </div>
 <article>
 <canvas id=canvasGame>This should be a good game</canvas>
+<p>if game won't load, try reloading the page!</p>
 </article>
 <script src=canvas.js></script>
 </body>

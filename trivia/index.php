@@ -23,12 +23,9 @@ include "header.php";
 		<div class="todo">
 		<p>James' Site Todo List: </p>
 		<ul>
-			<li>make a javascript clock</li>
-			<li>make a javascript game</li>
-			<li>embed lexical analyzer</li>
-			<li>add picture of me to website</li>
-			<li>add blog area or webcomic area</li>
-			<li>learn to use html canvas</li>
+			<li>make a GOOD javascript game</li>
+			<li>embed lexer thing</li>
+			<li>add about page, change home page into splash page</li>
 			<li>speech synthesis, encoding(morse code or caesar shift followed by A1Z26), at 8:05 on music portion of site</li>
 		</ul>
 		</div>

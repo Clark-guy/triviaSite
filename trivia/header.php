@@ -5,7 +5,7 @@
 	<meta charset = "utf-8">
 	<!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="mobile_stylesheet.css" type="text/css" media="screen and (max-device-width:100px)">
+	<link rel="stylesheet" href="mobile_stylesheet.css" type="text/css" media="screen and (max-device-width:767px)">
 	<script data-ad-client="ca-pub-4179261541988462" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<script src="jquery-3.6.0.min.js"></script>
 	<script src="bigMode.js"></script>
@@ -39,6 +39,7 @@ $path_parts = pathinfo($phpSelf);
 		<a href="jeopardy.php">Trivia</a>
 		<a href="comic.php">Web Comic</a>
 		<a href="countdown.php">Don't click this</a>
+		<a href="testing.php">cool game</a>
 		<a href="../index.php">Back to Yikes!</a>
 	</nav>
 	

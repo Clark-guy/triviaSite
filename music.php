@@ -7,7 +7,7 @@
 <!--<div align="center" class="center"><iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1977983186/size=large/bgcol=ffffff/linkcol=63b2cc/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://yikesexclamationpoint.bandcamp.com/album/tools-i-have-for-sale">tools i have for sale by yikes!</a></iframe></div>
 <div align="center" class="center"><iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/track=3860937527/size=large/bgcol=ffffff/linkcol=63b2cc/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://yikesexclamationpoint.bandcamp.com/track/the-snike-of-friendly-fire">The Snike of Friendly Fire by yikes!</a></iframe></div>
 <div align="center" class="center"><iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/track=3092925935/size=large/bgcol=ffffff/linkcol=63b2cc/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://yikesexclamationpoint.bandcamp.com/track/sometimes-you-lose">Sometimes...You Lose by Yikes!</a></iframe></div>-->
-
+<iframe style = "margin-left: auto; margin-right: auto;"src="https://open.spotify.com/embed/artist/0ru2ojwu3T1kfujMYwRBpb" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 <h3>*MysTery SOng 1*<h3>
 <audio controls><source src="songs/willoughby.wav" type="audio/mpeg">Your browser does not support the audio tag.</audio>
 
