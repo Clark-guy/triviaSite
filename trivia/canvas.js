@@ -1,12 +1,6 @@
 
 var gameWindow = document.getElementById("canvasGame");
 var ctx = gameWindow.getContext("2d");
-
-//ctx.moveTo(0, 0);
-//ctx.lineTo(200, 100);
-//ctx.stroke();
-
-
 var playerPos = [0,0];
 var size = 10;
 var speed = .25;
@@ -29,6 +23,7 @@ var up = 0;
 var down = 0;
 
 
+//event listeners for keydown/keyup
 window.addEventListener("keydown", function(event){
 	var code = event.keyCode || event.which;
 	if (code == '13'){
@@ -68,8 +63,10 @@ window.addEventListener("keyup", function(event){
 });
 
 
+// this function could use some cleaning up. maybe should count base floor as another platform to remove conditional
 function isOnFloor(playerPos, platforms){
-	if(playerPos[1] >= 150-size)	//tells if player is on bottom floor
+	//check if player is on bottom floor
+	if(playerPos[1] >= 150-size)
 		return true;
 	else{
 		//logic to test if standing on floating platform
@@ -100,7 +97,7 @@ function move(platforms){
 		playerPos[1]+=speed;
 	}
 	playerPos[1]+=yVel;
-	if (isOnFloor(playerPos, platforms)){
+	if (isOnFloor(playerPos, platforms) && yVel >0){
 		yVel = 0;
 		//snap player to base floor 
 		if(playerPos[1] > 150-size)
@@ -136,34 +133,48 @@ var lastLongTick = 0;
 var enemies = []
 var platforms = []
 var gameOver =0;
+var score = 0;
+ctx.font = "20px Arial";
+
+//main game loop
 function update(pattern){
+	//need to clean this up a little bit
 	move(platforms);
 	ctx.fillStyle = pattern;
 	ctx.fillRect(0, 0, gameWindow.width, gameWindow.height);
 	ctx.beginPath();
 	ctx.rect(playerPos[0],playerPos[1], size, size);
-	ctx.fillStyle="black";
 	if (gameOver == 0){
 		ctx.fill();
+		ctx.fillStyle="white";
+		ctx.strokeText("score: " +score, 30, 30);
 		ctx.closePath();
 	}
 	else{
 		ctx.font = "30px Arial";
 		for(let i=150;i>=-225;i-=75){
-			ctx.strokeText("game over", playerPos[1], playerPos[0]+i);
+			ctx.strokeText("final score: " +score, playerPos[1]-50, playerPos[0]+i);
 		}
 	}
 	var ticks= Date.now();
-	if(gameOver==0 && ticks-lastLongTick>2500 && enemies.length < 5){	//spawn enemies/platforms
-		enemies.push(spawnEnemy());
-		platforms.push(spawnPlatform());
+
+	//spawn enemies, platforms
+	if(gameOver==0 && ticks-lastLongTick>2500){
+		if(enemies.length < 5){
+			enemies.push(spawnEnemy());
+			platforms.push(spawnPlatform());
+		}
+		score+=1;
 		lastLongTick = ticks;
 	}
+
+	//unfinished timer function
 	if(ticks-lastLongTick>1000){
 		for(let i=0; i<enemies.length; i++){
 		}
 	}
-	//make enemies walk towards me
+
+	//make enemies walk left
 	for(let i=0; i<enemies.length; i++){
 		enemies[i].pos[0]-=enemies[i].speed;
 		if ((enemies[i].pos[0]<=playerPos[0]+10 && enemies[i].pos[0] >=playerPos[0]-10 ) && enemies[i].pos[1]==playerPos[1])
@@ -187,8 +198,11 @@ function update(pattern){
 			ctx.fill();
 			ctx.closePath();
 		}
-		if (platforms[i].pos[0] >=gameWindow.width)
-			platforms[i].pos = [-100, platforms[i].pos[1]];
+		//snap platform back to beginning if at end
+		if (platforms[i].pos[0] >=gameWindow.width){
+			platforms[i].pos = [-100, randInt(100)+40];
+			platforms[i].width = randInt(40)+40;
+		}
 	}
 }
 
@@ -196,7 +210,8 @@ function update(pattern){
 $(document).ready(function() {
 
 	//TODO: change parameter of update to list of sprites when i have more sprites
-	//TODO: make sure setInterval is closing upon reload
+	//TODO: make sure setInterval is closing upon reload - maybe why cache is causing issues on some browsers? temp fix auto clear cache
+	//TODO: need to figure out how to draw different colors on canvas
 	window.onload = function(){
 		var pattern = ctx.createPattern(bg, 'repeat');
 		const interval = setInterval(function() {update(pattern);}, 20);	//for debug, change 20 to 200	
