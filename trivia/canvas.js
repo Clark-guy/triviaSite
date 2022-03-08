@@ -212,10 +212,10 @@ $(document).ready(function() {
 	//TODO: change parameter of update to list of sprites when i have more sprites
 	//TODO: make sure setInterval is closing upon reload - maybe why cache is causing issues on some browsers? temp fix auto clear cache
 	//TODO: need to figure out how to draw different colors on canvas
-	window.onload = function(){
-		var pattern = ctx.createPattern(bg, 'repeat');
-		const interval = setInterval(function() {update(pattern);}, 20);	//for debug, change 20 to 200	
-	}
 });
 
 
+window.onload = function(){
+	var pattern = ctx.createPattern(bg, 'repeat');
+	const interval = setInterval(function() {update(pattern);}, 20);	//for debug, change 20 to 200	
+}
