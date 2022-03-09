@@ -11,7 +11,7 @@ body#bg{
 	animation-name: bgMove;
 	animation-duration: 30s;
 	animation-iteration-count: infinite;
-	background: url(../images/subs.gif) center center / cover fixed white;
+	background: url(../images/woodinter.gif) center center / cover fixed white;
 
 }
 

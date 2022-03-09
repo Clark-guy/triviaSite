@@ -20,5 +20,6 @@
         	<a href="music.php">Our Cool ♬</a>
 			<a href="jules.php">jules's uuuh</a>
         	<a href="james.php">james's "whatever"</a>
+		<a href="https://yikesexclamationpoint.bandcamp.com/">bamcam</a>
 		</nav>
 		</header>

@@ -7,7 +7,7 @@ var speed = .25;
 var bg = new Image();
 var yVel = 0;
 var xVel = 0;
-bg.src = 'images/jsTest.png';
+bg.src = 'images/shape.png';
 bg.style.width = '50%';
 bg.style.height = 'auto';
 
@@ -146,7 +146,7 @@ function update(pattern){
 	ctx.rect(playerPos[0],playerPos[1], size, size);
 	if (gameOver == 0){
 		ctx.fill();
-		ctx.fillStyle="white";
+		ctx.fillStyle="black";
 		ctx.strokeText("score: " +score, 30, 30);
 		ctx.closePath();
 	}
@@ -180,7 +180,7 @@ function update(pattern){
 		if ((enemies[i].pos[0]<=playerPos[0]+10 && enemies[i].pos[0] >=playerPos[0]-10 ) && enemies[i].pos[1]==playerPos[1])
 			gameOver=1;
 		ctx.rect(enemies[i].pos[0],enemies[i].pos[1], size, size);
-		ctx.fillStyle="white";
+		ctx.fillStyle="black";
 		if (gameOver == 0){
 			ctx.fill();
 			ctx.closePath();
@@ -193,7 +193,7 @@ function update(pattern){
 	for(let i=0; i<platforms.length; i++){
 		platforms[i].pos[0]+=1;
 		ctx.rect(platforms[i].pos[0],platforms[i].pos[1], platforms[i].width, size/1.5);
-		ctx.fillStyle="white";
+		ctx.fillStyle="black";
 		if (gameOver == 0){
 			ctx.fill();
 			ctx.closePath();
