@@ -7,6 +7,8 @@ var speed = .25;
 var bg = new Image();
 var yVel = 0;
 var xVel = 0;
+var highScores = [];
+var name = "";
 bg.src = 'images/shape.png';
 bg.style.width = '50%';
 bg.style.height = 'auto';
@@ -129,32 +131,59 @@ function spawnEnemy(){
 	return newEnemy;
 }
 
+function highScore(){
+	name = window.prompt("enter your name! 6 characters max");
+	while (name.length>6 || name.length<0){
+		name = window.prompt("enter your name! 6 characters max");
+	}
+}
+
+
 var lastLongTick = 0;
 var enemies = []
 var platforms = []
 var gameOver =0;
+var enterHighScore =0;
 var score = 0;
 ctx.font = "20px Arial";
 
 //main game loop
 function update(pattern){
 	//need to clean this up a little bit
-	move(platforms);
 	ctx.fillStyle = pattern;
 	ctx.fillRect(0, 0, gameWindow.width, gameWindow.height);
 	ctx.beginPath();
 	ctx.rect(playerPos[0],playerPos[1], size, size);
 	if (gameOver == 0){
+		move(platforms);
 		ctx.fill();
 		ctx.fillStyle="black";
-		ctx.strokeText("score: " +score, 30, 30);
+		ctx.fillText("score: " +score, 30, 30);
 		ctx.closePath();
 	}
 	else{
-		ctx.font = "30px Arial";
-		for(let i=150;i>=-225;i-=75){
-			ctx.strokeText("final score: " +score, playerPos[1]-50, playerPos[0]+i);
+		if (enterHighScore == 0){
+			highScore();
+			enterHighScore = 1;
 		}
+		$.ajax({
+			url: "highScores.csv",
+			dataType: "text",
+		}).done(function(data) {
+			loadData(data);
+		});
+		ctx.fillStyle="black";
+		ctx.font = "20px Arial";
+		ctx.fillText("HIGH SCORES", 60, 20);
+		for(var i=1;i<6;i++){
+			var fullScore = highScores[i].split(",");
+			var name = fullScore[0];
+			var theirScore = fullScore[1]
+			ctx.font = "20px Arial";
+			ctx.fillText(name, 30, 30+20*i);
+			ctx.fillText(theirScore, 200, 30+20*i);
+		}
+		//ctx.strokeText("final score: " +score, 100, 100);
 	}
 	var ticks= Date.now();
 
@@ -208,12 +237,14 @@ function update(pattern){
 
 
 $(document).ready(function() {
-
 	//TODO: change parameter of update to list of sprites when i have more sprites
 	//TODO: make sure setInterval is closing upon reload - maybe why cache is causing issues on some browsers? temp fix auto clear cache
 	//TODO: need to figure out how to draw different colors on canvas
 });
 
+function loadData(data){
+	highScores = data.split("\n");
+}
 
 window.onload = function(){
 	var pattern = ctx.createPattern(bg, 'repeat');

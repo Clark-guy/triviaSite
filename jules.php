@@ -3,8 +3,10 @@
 ?>
 
 <main>
-<h2>jules!</h2>
+<h2>hi i am jules!</h2>
+<div><img class="ass" src="images/jul.jpeg" height=100% width=95%></img></div>
 <p>ascii art of jules as an easter island head by james</p>
+<div class="container">
 <pre style = "text-align:left">
   _______
  /       \
@@ -16,7 +18,7 @@
   \______/
    
 
-</pre>
+</pre></div>
 </main>
 </body>
 </html>

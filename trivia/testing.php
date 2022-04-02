@@ -28,6 +28,7 @@ include "header.php";
 	</form>
 </div>
 <article>
+<p id=filetest> this is text </p>
 <canvas id=canvasGame>This should be a good game</canvas>
 <p>if game won't load, try reloading the page!</p>
 </article>

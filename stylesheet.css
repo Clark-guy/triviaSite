@@ -51,10 +51,27 @@ a{
 
 nav{
 	text-align: center;
+	vertical-align: middle;
+	display: flex;
+	justify-content: center;
 }
+
+nav a:hover{
+	background-color: #c27ba0;
+	border-width: 0 px .2em;
+	vertical-align: middle;
+}
+
+nav a:active{
+	border-width: .2em 0px;
+	border-style: groove;
+	vertical-align: middle;
+}
+
 
 #nav ul{
 	display: inline-block;
+	vertical-align: middle;
 }
 
 div#nav{
@@ -73,6 +90,8 @@ h1 {
 	color: #135169;
 	font-family: 'Blocks-N-Bolts-Regular';
 	font-size: 6rem;
+	margin-top: 1.5%;
+	margin-bottom: 0px;
 }
 
 h2{
