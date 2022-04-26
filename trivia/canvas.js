@@ -7,8 +7,7 @@ var speed = .25;
 var bg = new Image();
 var yVel = 0;
 var xVel = 0;
-var highScores = [];
-var name = "";
+var playerName = "";
 bg.src = 'images/shape.png';
 bg.style.width = '50%';
 bg.style.height = 'auto';
@@ -132,9 +131,9 @@ function spawnEnemy(){
 }
 
 function highScore(){
-	name = window.prompt("enter your name! 6 characters max");
-	while (name.length>6 || name.length<0){
-		name = window.prompt("enter your name! 6 characters max");
+	playerName = window.prompt("enter your name! 6 characters max");
+	while (playerName.length>6 || playerName.length<0){
+		playerName = window.prompt("enter your name! 6 characters max");
 	}
 }
 
@@ -145,43 +144,42 @@ var platforms = []
 var gameOver =0;
 var enterHighScore =0;
 var score = 0;
+var highScores = [];
 ctx.font = "20px Arial";
 
 //main game loop
 function update(pattern){
 	//need to clean this up a little bit
+	move(platforms);
 	ctx.fillStyle = pattern;
 	ctx.fillRect(0, 0, gameWindow.width, gameWindow.height);
 	ctx.beginPath();
 	ctx.rect(playerPos[0],playerPos[1], size, size);
+	ctx.closePath();
 	if (gameOver == 0){
-		move(platforms);
 		ctx.fill();
 		ctx.fillStyle="black";
 		ctx.fillText("score: " +score, 30, 30);
-		ctx.closePath();
+		//ctx.closePath();
 	}
 	else{
 		if (enterHighScore == 0){
 			highScore();
+			$.ajax({
+				url: "highScores.csv",
+				dataType: "text",
+			}).done(function(data) {
+				loadData(data);
+			});
 			enterHighScore = 1;
 		}
-		$.ajax({
-			url: "highScores.csv",
-			dataType: "text",
-		}).done(function(data) {
-			loadData(data);
-		});
 		ctx.fillStyle="black";
 		ctx.font = "20px Arial";
 		ctx.fillText("HIGH SCORES", 60, 20);
-		for(var i=1;i<6;i++){
-			var fullScore = highScores[i].split(",");
-			var name = fullScore[0];
-			var theirScore = fullScore[1]
+		for(var i=0;i<5;i++){
 			ctx.font = "20px Arial";
-			ctx.fillText(name, 30, 30+20*i);
-			ctx.fillText(theirScore, 200, 30+20*i);
+			ctx.fillText(highScores[i].name, 30, 35+20*i);
+			ctx.fillText(highScores[i].score, 200, 35+20*i);
 		}
 		//ctx.strokeText("final score: " +score, 100, 100);
 	}
@@ -197,11 +195,6 @@ function update(pattern){
 		lastLongTick = ticks;
 	}
 
-	//unfinished timer function
-	if(ticks-lastLongTick>1000){
-		for(let i=0; i<enemies.length; i++){
-		}
-	}
 
 	//make enemies walk left
 	for(let i=0; i<enemies.length; i++){
@@ -243,7 +236,56 @@ $(document).ready(function() {
 });
 
 function loadData(data){
-	highScores = data.split("\n");
+	var highScoresArr = data.split("\n");
+	//create highScores array of objects
+	for(var i=0; i<highScoresArr.length; i++){
+		var items = highScoresArr[i].split(",");
+		var newObject = {};
+		newObject.name = items[0];
+		newObject.score = items[1];
+		highScores.push(newObject);
+	}
+	currentPlayerObject = {};
+	currentPlayerObject.name = playerName;
+	currentPlayerObject.score = score;
+	//check through high scores and see if score is higher than any of them
+	//if so, update csv
+	//this function only called at end of game, so score is finalized
+	//go through all high score
+	for(var i=0; i<highScores.length; i++){
+		if (currentPlayerObject.score > highScores[i].score) {
+			console.log("location: " + i + "   highscores length: " + highScores.length);
+			highScores.splice(i, 0, currentPlayerObject);
+			highScores.pop();
+			highScores[i].score = highScores[i].score.toString();
+			break;
+		}
+	}
+	
+	highScoreString = JSON.stringify(highScores);
+	createCookie("height", highScoreString, "10");
+	$.ajax({
+		type: "POST",
+		url: "hiscore.php",
+		data: highScoreString,
+		success: function(res){
+			//alert(res);
+		}
+	});
+}
+
+//delete this function later if i figure out how to do this correctly
+function createCookie(name, value, days) {
+	var expires;
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime() + (days * 24*60*60*1000));
+		expires = "; expires=" + date.toGMTString();
+	}
+	else {
+		expires = "";
+	}
+	document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
 }
 
 window.onload = function(){

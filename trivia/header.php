@@ -21,6 +21,9 @@ $path_parts = pathinfo($phpSelf);
 		if ($path_parts['filename'] == "countdown"){
 			print "countBody";
 		}
+		else if ($path_parts['filename'] == "aidan"){
+			print "aidan";
+		}
 		else{
 			print "bg";
 		}?>>

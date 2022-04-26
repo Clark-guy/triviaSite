@@ -1,0 +1,6 @@
+make background flash colors
+php to randomly place divs of aidan pics draggable
+	
+animate a few aidan pics too
+loud music plays
+add text flying around the screen that says aidan things
