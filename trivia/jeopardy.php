@@ -12,7 +12,8 @@ include "header.php";
 			let quest = document.getElementById("quesText");
 		</script>
 		<button onclick="sayHello()">say hello</button>
-		<button onclick="answer()">Answer</button>
+		<button id="answerButton" onclick="seeAnswer()">Answer</button>
+		<button id="quesButton" style="display: none" onclick="seeQuestion()">Original Question</button>
 		<button onclick="newPrompt()">New Prompt</button>
 		<fieldset>
 			<legend>Pick a question value</legend>

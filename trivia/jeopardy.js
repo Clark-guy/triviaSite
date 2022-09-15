@@ -18,8 +18,8 @@ function ajaxLoaded(data){
 	//TODO duplicated code - just call newPrompt instead of doing all this?
 	lineNum = Math.floor(Math.random() * lines.length);
 	//quesText.innerHTML = data.slice(0,1000);//"newText";
-	subjText.innerHTML = lines[lineNum].split("	")[3];//"newText";
-	quesText.innerHTML = lines[lineNum].split("	")[5];//"newText";
+	subjText.innerHTML = "SUBJECT: " + lines[lineNum].split("	")[3];//"newText";
+	quesText.innerHTML = "Q: " + lines[lineNum].split("	")[5];//"newText";
 }
 
 
@@ -34,8 +34,13 @@ function newPrompt() {
 		questionParts = lines[lineNum].split("	");
 		lineNum = Math.floor(Math.random() * lines.length);
 	}
-	subjText.innerHTML = lines[lineNum].split("	")[3];//"newText";
-	quesText.innerHTML = lines[lineNum].split("	")[5];//"newText";
+	subjText.innerHTML = "SUBJECT: " + lines[lineNum].split("	")[3];//"newText";
+	quesText.innerHTML = "Q: " + lines[lineNum].split("	")[5];//"newText";
+	
+	var answerButton= document.getElementById("answerButton");
+	var quesButton= document.getElementById("quesButton");
+	answerButton.style.display = "inline-block"; 
+	quesButton.style.display = "none";
 }
 
 
@@ -43,6 +48,20 @@ function sayHello(){
 	alert("Hello");
 }
 
-function answer(){
-	alert(lines[lineNum].split("	")[6]);
+function seeAnswer(){
+	var quesText = document.getElementById("quesText");
+	var answerButton= document.getElementById("answerButton");
+	var quesButton= document.getElementById("quesButton");
+	quesText.innerHTML = (lines[lineNum].split("	")[6]);
+	answerButton.style.display = "none"; 
+	quesButton.style.display = "inline-block";
+}
+
+function seeQuestion(){
+	var quesText = document.getElementById("quesText");
+	var answerButton= document.getElementById("answerButton");
+	var quesButton= document.getElementById("quesButton");
+	quesText.innerHTML = "Q: " + lines[lineNum].split("	")[5];//"newText";
+	answerButton.style.display = "inline-block"; 
+	quesButton.style.display = "none";
 }
