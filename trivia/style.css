@@ -417,3 +417,91 @@ body#aidan{
 	font-size: 4em;
 	background-color: white;
 }
+
+@keyframes slide{
+	from {margin-left:40%; transform: rotate(-5deg)}
+	to {margin-left: 0%; transform: rotate(5deg)}
+}
+
+#dealerHand > .card{
+	animation-name:slide;
+	animation-duration:.3s;
+	transform: rotate(5deg);
+}
+#hand > .card{
+	animation-name:slide;
+	animation-duration:.5s;
+	transform: rotate(5deg);
+}
+
+.card{
+	display:inline-block;
+	font-size: 2em;
+	background-color:white;
+	/*color:red;*/
+	height:7em;
+	width:4em;
+	border-radius: .5em;
+	border: solid 1px black;
+}
+.cardBack{
+	display:inline-block;
+	font-size: 2em;
+	background-color:blue;
+	/*color:red;*/
+	height:7em;
+	width:4em;
+	border-radius: .5em;
+	border: solid 5px white;
+	float:right;
+}
+
+#table{
+	background-color: black;
+	padding:2em;
+}
+#tableGap{
+	height:3em;
+}
+
+#topFace{
+	margin:.5em;
+	font-weight:bold;
+}
+#midFace{
+	margin:1em;
+	font-weight:bold;
+	margin-left:auto;
+	margin-right:auto;
+	width:50%;
+	text-align:center;
+	border: solid 5px red;
+
+}
+#botFace{
+	margin:.5em;
+	font-weight:bold;
+	transform:scale(-1,-1);
+	float:right;
+	bottom:0px;
+	position:inherit;
+	display:flex;
+	align-items:flex-end;
+}
+
+#infoText{
+	color: lime;
+	font-size: 1.5em;
+	margin:1em;
+	margin-top:1em;
+}
+
+.pokerButt{
+	width: 4em;
+	margin-left:1em;
+	font-size:2em;
+}
+
+#pokerOptions{
+	display:none;
+}
