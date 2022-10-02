@@ -7,7 +7,7 @@ class Card {
 				<div id=midFace>{suit}</div>
 				<div id=botFace>{num}</div>
 			</div>
-			<div class=cardBack></div>
+			<div class=cardBack>{ds}</div>
 			`;
 	number;
 	suit;
@@ -81,6 +81,7 @@ var table = document.getElementById("table");
 var myHandHtml  = document.getElementById("hand");
 var dealerHandHtml = document.getElementById("dealerHand");
 var infoText = document.getElementById("infoText");
+var goButton = document.getElementById("warButt");
 var deck = new Deck();
 var myHand = new Deck();
 var theirHand = new Deck();
@@ -98,16 +99,19 @@ for (var card in deck.cards){
 
 
 
-war = function(){
-	var theirIndex = genRandom(0,theirHand.cards.length-1);
-	var theirCard = theirHand.cards[theirIndex];
+war = function(theirRisk, myRisk){
+	console.log(theirRisk.length + " " + myRisk.length)
+	console.log(theirRisk)
+	var theirCard = theirHand.cards[genRandom(0,theirHand.cards.length-1)];
 	var myCard = myHand.cards[genRandom(0,myHand.cards.length-1)]
-	//console.log(theirHand);
-	//console.log(theirIndex);
-	//console.log(theirCard);
+	theirRisk.push(theirCard);
+	myRisk.push(myCard);
+
 	hand.innerHTML =myCard.cardTemplate.replaceAll("{num}", myCard.getRealValue(myCard.number)).replace("{suit}", myCard.suit); 
+	hand.innerHTML = hand.innerHTML.replaceAll("{ds}", myHand.cards.length);
 	
 	dealerHand.innerHTML =theirCard.cardTemplate.replaceAll("{num}", theirCard.getRealValue(theirCard.number)).replace("{suit}", theirCard.suit); 
+	dealerHand.innerHTML = dealerHand.innerHTML.replaceAll("{ds}", theirHand.cards.length);
 	
 	if(myCard.number == 1){
 		myCard.number+=13;
@@ -118,17 +122,34 @@ war = function(){
 
 
 	if(theirCard.number>myCard.number){
+		console.log("they win");
 		infoText.innerHTML = ("they win!");
-		theirHand.addCard(myCard);
-		myHand.removeCard(myCard);
+		for(var card in myRisk){
+			theirHand.addCard(myRisk[card]);
+			myHand.removeCard(myRisk[card]);
+		}
+		goButton.onclick = function() {war([], [])}
 	}
 	else if(myCard.number>theirCard.number){
+		console.log("i win");
 		infoText.innerHTML = ("you win!");
-		theirHand.removeCard(theirCard);
-		myHand.addCard(theirCard);
+		for(var card in theirRisk){
+			myHand.addCard(theirRisk[card]);
+			theirHand.removeCard(theirRisk[card]);
+		}
+		goButton.onclick = function() {war([], [])}
 	}
 	else{
-		infoText.innerHTML = ("tie!");
+		console.log("tie");
+		infoText.innerHTML = ("War!");
+		for(var i=0;(i<2 && i<theirHand.cards.length);i++){
+			theirRisk.push(theirHand.cards[i]);
+		}
+		for(var i=0;i<2 && i<myHand.cards.length;i++){
+			myRisk.push(myHand.cards[i]);
+		}
+		goButton.onclick = function() {war(theirRisk, myRisk)}
+		
 	}
 }
 //war();
