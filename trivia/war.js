@@ -82,10 +82,27 @@ var myHandHtml  = document.getElementById("hand");
 var dealerHandHtml = document.getElementById("dealerHand");
 var infoText = document.getElementById("infoText");
 var goButton = document.getElementById("warButt");
+var rightButton = document.getElementById("bjButt");
 var deck = new Deck();
 var myHand = new Deck();
 var theirHand = new Deck();
 deck.buildDeck();
+
+
+
+//blackjack
+//
+//need to layer cards so a bunch of em can be on top of each other
+//otherwise we'll run out of room when hitting
+//
+
+blackjack = function(){
+	goButton.innerText = "hit";
+	rightButton.innerText = "stand";
+}
+
+
+//War stuff
 
 //split deck between both players
 for (var card in deck.cards){
@@ -97,13 +114,12 @@ for (var card in deck.cards){
 	}
 }
 
-
-
 war = function(theirRisk, myRisk){
-	console.log(theirRisk.length + " " + myRisk.length)
-	console.log(theirRisk)
+	rightButton.style.display = "none";
 	var theirCard = theirHand.cards[genRandom(0,theirHand.cards.length-1)];
 	var myCard = myHand.cards[genRandom(0,myHand.cards.length-1)]
+	theirHand.removeCard(theirCard);
+	myHand.removeCard(myCard);
 	theirRisk.push(theirCard);
 	myRisk.push(myCard);
 
@@ -126,7 +142,7 @@ war = function(theirRisk, myRisk){
 		infoText.innerHTML = ("they win!");
 		for(var card in myRisk){
 			theirHand.addCard(myRisk[card]);
-			myHand.removeCard(myRisk[card]);
+			theirHand.addCard(theirRisk[card]);
 		}
 		goButton.onclick = function() {war([], [])}
 	}
@@ -135,7 +151,7 @@ war = function(theirRisk, myRisk){
 		infoText.innerHTML = ("you win!");
 		for(var card in theirRisk){
 			myHand.addCard(theirRisk[card]);
-			theirHand.removeCard(theirRisk[card]);
+			myHand.addCard(myRisk[card]);
 		}
 		goButton.onclick = function() {war([], [])}
 	}
@@ -144,18 +160,14 @@ war = function(theirRisk, myRisk){
 		infoText.innerHTML = ("War!");
 		for(var i=0;(i<2 && i<theirHand.cards.length);i++){
 			theirRisk.push(theirHand.cards[i]);
+			theirHand.removeCard(theirHand.cards[i]);
 		}
 		for(var i=0;i<2 && i<myHand.cards.length;i++){
 			myRisk.push(myHand.cards[i]);
+			myHand.removeCard(myHand.cards[i]);
 		}
 		goButton.onclick = function() {war(theirRisk, myRisk)}
 		
 	}
 }
-//war();
 
-function autoWar(){
-	while(myHand.cards.length!=1 && theirHand.cards.length!=1){
-		war();
-	}
-}

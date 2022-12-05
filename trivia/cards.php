@@ -36,7 +36,7 @@ include "header.php";
 	<div id="tableGap"></div>
 	<div id=options>
 		<button id=warButt class=pokerButt onclick="war([], [])">WAR</button>
-		<!--button class=pokerButt onclick="autoWar()">crash my browser and maybe computer</button-->
+		<button id=bjButt  class=pokerButt onclick="blackjack()">blackjack</button>
 	</div>
 	<div id=pokerOptions>
 		<button class=pokerButt>CALL</button>

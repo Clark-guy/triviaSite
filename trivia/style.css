@@ -457,6 +457,7 @@ body#aidan{
 }
 
 #table{
+	height:40em;
 	background-color: black;
 	padding:2em;
 }
@@ -497,7 +498,7 @@ body#aidan{
 }
 
 .pokerButt{
-	width: 4em;
+	min-width: 4em;
 	margin-left:1em;
 	font-size:2em;
 }
