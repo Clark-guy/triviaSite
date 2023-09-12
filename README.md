@@ -23,4 +23,3 @@ certificate may not be updated yet, so if your browser yells at you for going
 here, no need to worry. There's no place on the site where you could put any 
 particularly sensitive information, so you'll be fine.
 
-*Have a good day! you're the bestest ever in the world!!!! WOOHOO*
